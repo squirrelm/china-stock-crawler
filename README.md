@@ -13,7 +13,7 @@
 # 使用方法
 命令行执行，例如：
 ```
-php cli\get_single_stock.php sh601998
+php cli/get_single_stock.php sh601998
 ```
 返回形如：
 ```
