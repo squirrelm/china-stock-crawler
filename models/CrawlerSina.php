@@ -32,6 +32,14 @@ class CrawlerSina
         $lines = explode(chr(0x0a), $data);
         $arr_str1 = explode('"', $lines[0]);
         $arr_str2 = explode('"', $lines[1]);
+
+        if (empty($arr_str1[1])) {
+            throw new CrawlerException('未取到行情数据');
+        }
+        if (empty($arr_str2[1])) {
+            throw new CrawlerException('未取到近期数据');
+        }
+
         $arr_quote = explode(',', $arr_str1[1]);
         $arr_recent = explode(',', $arr_str2[1]);
 

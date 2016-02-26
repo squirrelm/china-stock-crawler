@@ -7,16 +7,18 @@
  */
 use models\Crawler;
 use models\CrawlerSina;
+use models\CrawlerException;
+use helps\Cli;
 
-define('BASE_PATH', dirname(__DIR__));
+require '_bootstrap.php';
 
-spl_autoload_register(function ($class) {
-    require BASE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-});
-
+if (!isset($argv[1])) {
+    throw new CrawlerException('错误。请输入一个股票标志，例如：sh601998');
+}
 $symbol = $argv[1];
-if (empty($symbol)) {
-    throw new \Exception('symbol is null.');
+$symbol = strtolower($symbol);
+if (!preg_match('/^s(h|z)\d{6}$/', $symbol)) {
+    throw new CrawlerException('错误。股票标志格式不正确，请重新输入，例如：sh601998');
 }
 
 $crawler = new CrawlerSina(new Crawler());
@@ -118,9 +120,6 @@ B股流通股本(万股): {$negotiableCapitalB}
 ============================================
 CMD;
 
-if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    $out = mb_convert_encoding($out, 'GB2312', 'UTF-8');
-}
+Cli::output($out);
 
-echo $out;
 exit(0);
