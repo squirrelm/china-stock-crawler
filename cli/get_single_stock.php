@@ -118,6 +118,7 @@ B股流通股本(万股): {$negotiableCapitalB}
 日期: {$date}
 时间: {$time}
 ============================================
+
 CMD;
 
 Cli::output($out);
