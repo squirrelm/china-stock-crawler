@@ -16,11 +16,11 @@ spl_autoload_register(function ($class) {
     require $file;
 });
 
-set_exception_handler(function ($e) {
+set_exception_handler(function (Exception $e) {
     if ($e instanceof CrawlerException) {
-        Cli::output($e->getMessage());
+        Cli::output($e->getMessage().PHP_EOL);
     } else {
-        Cli::output("系统错误。".$e->getMessage());
+        Cli::output("系统错误。".$e->getMessage().PHP_EOL);
     }
     die();
 });
