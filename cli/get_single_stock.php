@@ -21,8 +21,8 @@ if (!preg_match('/^s(h|z)\d{6}$/', $symbol)) {
     throw new CrawlerException('错误。股票标志格式不正确，请重新输入，例如：sh601998');
 }
 
-$crawler = new CrawlerSina(new Crawler());
-$stockTrading = $crawler->getStockTradingData($symbol);
+$crawlerSina = new CrawlerSina(new Crawler());
+$stockTrading = $crawlerSina->getStockTradingData($symbol);
 $stock = $stockTrading->getStock();
 $stockStructure = $stockTrading->getStockStructure();
 $stockFinance = $stockTrading->getStockFinance();

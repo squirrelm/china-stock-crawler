@@ -42,7 +42,7 @@ class Crawler
 		$data	= curl_exec($ch);
 
 		if(curl_errno($ch)) {
-			throw new Exception("Spider fetch error: " . curl_error($ch));
+			throw new \Exception("Spider fetch error: " . curl_error($ch));
 		}
 
 		curl_close($ch);
