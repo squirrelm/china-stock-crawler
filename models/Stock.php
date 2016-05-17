@@ -11,6 +11,10 @@
 namespace models;
 
 
+/**
+ * Class Stock
+ * @package models
+ */
 class Stock
 {
     const STOCK_TYPE_A_SHARE = 'A';
@@ -31,19 +35,48 @@ class Stock
     const STOCK_STATUS_UNLISTED = 'U'; // 未上市
     const STOCK_STATUS_DELISTED = 'D'; // 已退市
 
+    /**
+     * @var string 股票代码
+     */
     private $code;
+    /**
+     * @var string 股票名称
+     */
     private $name;
+    /**
+     * @var string 股票编码
+     */
     private $symbol;
+    /**
+     * @var string 股票类型
+     */
     private $type;
+    /**
+     * @var string 交易所
+     */
     private $exchange;
+    /**
+     * @var string 股票拼音
+     */
     private $pinyin;
+    /**
+     * @var string 股票状态
+     */
     private $status;
 
+    /**
+     * 是否ST股
+     * @return int
+     */
     public function isST()
     {
         return preg_match('/S/', $this->getName());
     }
 
+    /**
+     * 是否新股
+     * @return int
+     */
     public function isNew()
     {
         return preg_match('/^N/', $this->getName());
@@ -197,6 +230,9 @@ class Stock
         return $this->status;
     }
 
+    /**
+     * @return string
+     */
     public function getStatusStr()
     {
         switch ($this->getStatus()) {
@@ -222,8 +258,9 @@ class Stock
     }
 
     /**
-     * @param mixed $status
+     * @param string $status
      * @throws \Exception
+     * @return void
      */
     public function setStatus($status)
     {

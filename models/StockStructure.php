@@ -11,13 +11,33 @@
 namespace models;
 
 
+/**
+ * Class StockStructure
+ * @package models
+ * @used-by CrawlerSina
+ */
 class StockStructure
 {
+    /**
+     * @var Stock
+     */
     private $stock;
-    private $totalCapital; // 总股本/万股
-    private $negotiableCapital; // 流通股本/万股
-    private $negotiableCapitalA;    // A股流通股本/万股
-    private $negotiableCapitalB;    // B股流通股本/万股
+    /**
+     * @var string 总股本/万股
+     */
+    private $totalCapital; 
+    /**
+     * @var string 流通股本/万股
+     */
+    private $negotiableCapital;
+    /**
+     * @var string A股流通股本/万股
+     */
+    private $negotiableCapitalA;
+    /**
+     * @var string B股流通股本/万股
+     */
+    private $negotiableCapitalB;
 
     /**
      * @return Stock
@@ -90,6 +110,5 @@ class StockStructure
     {
         $this->negotiableCapitalB = $negotiableCapitalB;
     }
-
 
 }

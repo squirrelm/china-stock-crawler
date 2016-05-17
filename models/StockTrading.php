@@ -11,6 +11,10 @@
 namespace models;
 
 
+/**
+ * Class StockTrading
+ * @package models
+ */
 class StockTrading
 {
     // 涨跌幅限制比率
@@ -31,14 +35,41 @@ class StockTrading
      */
     private $stockStructure;
 
-    private $price; // 当前价位
-    private $volume;    // 成交量/股
+    /**
+     * @var string 当前价位
+     */
+    private $price;
+    /**
+     * @var string 成交量/股
+     */
+    private $volume;
+    /**
+     * @var string
+     */
     private $amount;    // 成交额/元
+    /**
+     * @var string
+     */
     private $open;  // 今开盘价
+    /**
+     * @var string
+     */
     private $preClose;  // 昨收盘价
+    /**
+     * @var string
+     */
     private $high;  // 最高价
+    /**
+     * @var string
+     */
     private $low;   // 最低价
+    /**
+     * @var string
+     */
     private $date;  // 抓取日期
+    /**
+     * @var string
+     */
     private $time;  // 抓取时间
 
 

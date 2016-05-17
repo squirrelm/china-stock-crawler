@@ -9,6 +9,10 @@
 namespace models;
 
 
+/**
+ * Class CrawlerException
+ * @package models
+ */
 class CrawlerException extends \Exception
 {
 

@@ -10,16 +10,45 @@
 
 namespace models;
 
+/**
+ * Class StockFinance
+ * @package models
+ * @used-by CrawlerSina::getStockFinance()
+ */
 class StockFinance
 {
+    /**
+     * @var Stock
+     */
     private $stock;
-    private $lastYearEPS;   // 前一年每股收益/元
-    private $last4QuarterEPS;    // 最近四个季度每股收益/元
-    private $recentNAPS;  // 最近报告的每股净资产/万元
-    private $lastYearProfit;    // 最近年度净利润/万元
-    private $last4QuarterProfit;    // 最近四个季度净利润/万元
-    private $recentProfit;  // 最近报告的净利润/万元
-    private $recentRevenue;   // 最近报告的营收/万元
+    /**
+     * @var string 前一年每股收益/元
+     */
+    private $lastYearEPS;
+    /**
+     * @var string 最近四个季度每股收益/元
+     */
+    private $last4QuarterEPS;
+    /**
+     * @var string 最近报告的每股净资产/万元
+     */
+    private $recentNAPS;
+    /**
+     * @var string 最近年度净利润/万元
+     */
+    private $lastYearProfit;
+    /**
+     * @var string 最近四个季度净利润/万元
+     */
+    private $last4QuarterProfit;
+    /**
+     * @var string 最近报告的净利润/万元
+     */
+    private $recentProfit;
+    /**
+     * @var string 最近报告的营收/万元
+     */
+    private $recentRevenue;
 
     /**
      * @param Stock $stock
@@ -28,7 +57,6 @@ class StockFinance
     {
         $this->stock = $stock;
     }
-
 
     /**
      * @return mixed

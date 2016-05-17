@@ -8,8 +8,16 @@
  */
 namespace helps;
 
+/**
+ * Class Cli
+ * @package helps
+ */
 class Cli
 {
+    /**
+     * @param string $str
+     * @return void
+     */
     public static function output($str)
     {
         if (self::isWin()) {
@@ -18,6 +26,9 @@ class Cli
         echo $str;
     }
 
+    /**
+     * @return bool
+     */
     private static function isWin()
     {
         return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';

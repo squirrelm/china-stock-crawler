@@ -8,6 +8,10 @@
 
 namespace models;
 
+/**
+ * Class CrawlerSina
+ * @package models
+ */
 class CrawlerSina
 {
     const API_URL_STOCK_DATA = "http://hq.sinajs.cn/list=%s";
@@ -17,11 +21,21 @@ class CrawlerSina
      */
     private $crawler;
 
+    /**
+     * CrawlerSina constructor.
+     * @param Crawler $crawler
+     */
     public function __construct(Crawler $crawler)
     {
         $this->crawler = $crawler;
     }
 
+    /**
+     * @param string $symbol
+     * @return StockTrading
+     * @throws CrawlerException
+     * @throws \Exception
+     */
     public function getStockTradingData($symbol)
     {
         $url = str_replace('%s', "{$symbol},{$symbol}_i", self::API_URL_STOCK_DATA);
@@ -51,6 +65,13 @@ class CrawlerSina
         return $stockTrading;
     }
 
+    /**
+     * @param string $symbol
+     * @param array $arr_quote
+     * @param array $arr_recent
+     * @return Stock
+     * @throws \Exception
+     */
     private function getStock($symbol, $arr_quote, $arr_recent)
     {
         $code = substr($symbol, 2);
@@ -68,6 +89,11 @@ class CrawlerSina
         return $stock;
     }
 
+    /**
+     * @param array $arr_recent
+     * @return StockFinance
+     * @uses StockFinance
+     */
     private function getStockFinance($arr_recent)
     {
         $stockFinance = new StockFinance();
@@ -82,6 +108,11 @@ class CrawlerSina
         return $stockFinance;
     }
 
+    /**
+     * @param array $arr_recent
+     * @return StockStructure
+     * @uses StockStructure
+     */
     private function getStockStructure($arr_recent)
     {
         $stockStructure = new StockStructure();

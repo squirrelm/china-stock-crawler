@@ -7,6 +7,10 @@
  */
 namespace models;
 
+/**
+ * Class Crawler
+ * @package models
+ */
 class Crawler
 {
 
@@ -15,6 +19,13 @@ class Crawler
 
 	const MULTI_FETCH_INTERVAL = 100000;
 
+    /**
+     * @param string $url
+     * @param array $param
+     * @param string $method
+     * @return string|false
+     * @throws \Exception
+     */
 	public function fetch($url, Array $param = [], $method = self::METHOD_GET) {
 		$ch = curl_init();
 		if(strtolower($method) === self::METHOD_GET){
@@ -50,6 +61,12 @@ class Crawler
 		return $data;
 	}
 
+    /**
+     * @param array $urls
+     * @param array $param
+     * @param string $method
+     * @return string[]
+     */
 	public function multiFetch(Array $urls, Array $param, $method = self::METHOD_GET) {
 		$mh = curl_multi_init();
 		$handles = array();
