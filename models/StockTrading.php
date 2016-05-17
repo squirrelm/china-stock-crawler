@@ -44,33 +44,33 @@ class StockTrading
      */
     private $volume;
     /**
-     * @var string
+     * @var string 成交额/元
      */
-    private $amount;    // 成交额/元
+    private $amount;
     /**
-     * @var string
+     * @var string 今开盘价
      */
-    private $open;  // 今开盘价
+    private $open;
     /**
-     * @var string
+     * @var string 昨收盘价
      */
-    private $preClose;  // 昨收盘价
+    private $preClose;
     /**
-     * @var string
+     * @var string 最高价
      */
-    private $high;  // 最高价
+    private $high;
     /**
-     * @var string
+     * @var string 最低价
      */
-    private $low;   // 最低价
+    private $low;
     /**
-     * @var string
+     * @var string 抓取日期
      */
-    private $date;  // 抓取日期
+    private $date;
     /**
-     * @var string
+     * @var string 抓取时间
      */
-    private $time;  // 抓取时间
+    private $time;
 
 
     public function __construct(Stock $stock)
