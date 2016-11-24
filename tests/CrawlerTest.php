@@ -36,7 +36,7 @@ class CrawlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testFetchError()
     {
-        $url = "http://aa.bb.cc/";
+        $url = "http://rhdvaf.dfwqrvcxv.asd/";
         $this->crawler->fetch($url);
     }
 }
